@@ -26,7 +26,7 @@ XML_INTRO_SCRIPT=`dirname $0`/docbook-xml-intro.php
 XML_PL_SCRIPT=`dirname $0`/docbook-programlistings.php
 
 # Provide a space-separated list of files that should be skipped
-SKIPFILES="language-snippets.xml"
+SKIPFILES="language-snippets.xml xmlcatalog.xml ivy.xml"
 
 # Begin
 
@@ -34,7 +34,7 @@ echo "Processing $XMLFILE"
 
 # Check if this is a skipfile
 for i in $SKIPFILES;do 
-    if [[ `basename "$XMLFILE"` = $i ]];then
+    if [[ `basename "$XMLFILE"` = *"$i"* ]];then
         echo "    Skipping; file is in skip list"
         exit
     fi
